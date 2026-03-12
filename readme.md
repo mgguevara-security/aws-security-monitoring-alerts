@@ -212,11 +212,14 @@ Utilizar CloudWatch Logs Insights para consultar y analizar los registros de Clo
 
 1. En la consola de **CloudWatch**, en el panel de navegación, seleccionamos **Información de registros** (Logs Insights).
 2. En el menú desplegable **Seleccionar grupo de registros**, elegimos **`CloudTrailLogGroup`**.
-3. Eliminamos el contenido existente del campo de consulta
+3. Eliminamos el contenido existente del campo de consulta :
+
+
 
 ![Ejecutar consulta](imagenes/ejecución-consulta.png)
 
 y pegamos el siguiente código:
+
 ```sql
 filter eventSource="signin.amazonaws.com" and eventName="ConsoleLogin" and responseElements.ConsoleLogin="Failure"
 | stats count(*) as Total_Count by sourceIPAddress as Source_IP, errorMessage as Reason, awsRegion as AWS_Region, userIdentity.arn as IAM_Arn
@@ -252,6 +255,7 @@ CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs
 Una vez completadas todas las tareas, la arquitectura final del sistema de monitoreo y alertas quedó configurada de la siguiente manera:
 
 ![Arquitectura final del sistema](imagenes/arquitectura-final-creada.png)
+
 
 
 
