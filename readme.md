@@ -212,8 +212,11 @@ Utilizar CloudWatch Logs Insights para consultar y analizar los registros de Clo
 
 1. En la consola de **CloudWatch**, en el panel de navegación, seleccionamos **Información de registros** (Logs Insights).
 2. En el menú desplegable **Seleccionar grupo de registros**, elegimos **`CloudTrailLogGroup`**.
-3. Eliminamos el contenido existente del campo de consulta y pegamos el siguiente código:
+3. Eliminamos el contenido existente del campo de consulta
 
+![Ejecutar consulta](imagenes/ejecución-consulta.png)
+
+y pegamos el siguiente código:
 ```sql
 filter eventSource="signin.amazonaws.com" and eventName="ConsoleLogin" and responseElements.ConsoleLogin="Failure"
 | stats count(*) as Total_Count by sourceIPAddress as Source_IP, errorMessage as Reason, awsRegion as AWS_Region, userIdentity.arn as IAM_Arn
@@ -227,11 +230,11 @@ Hacemos clic en **Ejecutar consulta** (Run query).
 ### 5.2 Resultados obtenidos
 La consulta devolvió los intentos fallidos de inicio de sesión registrados en CloudTrail, mostrando:
 
-- **Source_IP**: Dirección IP desde donde se intentó acceder
-- **Reason**: Motivo del fallo ("Failed authentication")
-- **AWS_Region**: Región donde ocurrió el intento
-- **IAM_Arn**: ARN del usuario que intentó acceder
-- **Total_Count**: Número de intentos fallidos por combinación de factores
+- **Source_IP**: 186.122.91.211
+- **Reason**: "Failed authentication"
+- **AWS_Region**: us-east-2
+- **IAM_Arn**: -
+- **Total_Count**: 3
 
 
 ### 5.3 Análisis de los resultados
@@ -244,9 +247,12 @@ Los resultados confirmaron que:
 
 ### Conclusión
 CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs de CloudTrail, facilitando el análisis de eventos de seguridad como intentos fallidos de acceso. Esta herramienta es fundamental para investigaciones forenses y auditorías de seguridad en AWS.
+
+## Arquitectura final del sistema
 Una vez completadas todas las tareas, la arquitectura final del sistema de monitoreo y alertas quedó configurada de la siguiente manera:
 
 ![Arquitectura final del sistema](imagenes/arquitectura-final-creada.png)
+
 
 
 
