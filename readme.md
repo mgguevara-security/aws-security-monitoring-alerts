@@ -246,7 +246,8 @@ Los resultados confirmaron que:
 CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs de CloudTrail, facilitando el análisis de eventos de seguridad como intentos fallidos de acceso. Esta herramienta es fundamental para investigaciones forenses y auditorías de seguridad en AWS.
 Una vez completadas todas las tareas, la arquitectura final del sistema de monitoreo y alertas quedó configurada de la siguiente manera:
 
-![Arquitectura final del sistema](imagenes/arquitectura-fianl-creada.png)
+![Arquitectura final del sistema](imagenes/arquitectura-final-creada.png)
+
 
 
 
