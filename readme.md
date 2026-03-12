@@ -105,6 +105,11 @@ Configurar una regla en Amazon EventBridge que detecte modificaciones en los gru
 
 Utilizamos el editor JSON para definir el patrón que detectará modificaciones en grupos de seguridad:
 
+## 3.2 Definición del patrón de eventos
+
+Utilizamos el editor JSON para definir el patrón que detectará modificaciones en grupos de seguridad:
+
+```json
 {
   "source": ["aws.ec2"],
   "detail-type": ["AWS API Call via CloudTrail"],
@@ -113,6 +118,7 @@ Utilizamos el editor JSON para definir el patrón que detectará modificaciones 
     "eventName": ["AuthorizeSecurityGroupIngress", "ModifyNetworkInterfaceAttribute"]
   }
 }
+```
 
 ### 3.3 Configuración del destino SNS
 Se configuró como destino el topic `MySNSTopic` para recibir las notificaciones, incluyendo un transformador de entrada para personalizar el mensaje.
@@ -241,5 +247,6 @@ Los resultados confirmaron que:
 
 ### Conclusión
 CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs de CloudTrail, facilitando el análisis de eventos de seguridad como intentos fallidos de acceso. Esta herramienta es fundamental para investigaciones forenses y auditorías de seguridad en AWS.
+
 
 
