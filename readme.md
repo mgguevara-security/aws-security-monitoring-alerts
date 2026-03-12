@@ -161,7 +161,7 @@ Se creó un filtro de métricas sobre el grupo de logs de CloudTrail para detect
 - **Nombre de métrica**: `ConsoleLoginFailureCount`
 - **Valor de métrica**: `1`
 
-![Configuración del filtro de métricas](imagenesfiltro-metrica-creada.png)
+![Configuración del filtro de métricas](imagenes/filtro-metrica.png)
 
 ### 4.2 Creación de la alarma
 Se configuró una alarma que se activa cuando hay 3 o más intentos fallidos en 5 minutos:
@@ -247,6 +247,7 @@ CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs
 Una vez completadas todas las tareas, la arquitectura final del sistema de monitoreo y alertas quedó configurada de la siguiente manera:
 
 ![Arquitectura final del sistema](imagenes/arquitectura-fianl-creada.png)
+
 
 
 
