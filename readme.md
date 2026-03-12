@@ -3,7 +3,7 @@
 ## 📋 Descripción del proyecto
 Implementación de un sistema completo de supervisión y alertas en AWS para detectar y notificar eventos de seguridad en tiempo real, basado en un escenario de protección de infraestructura cloud.
 
-![Arquitectura del sistema](imagenes/escenario-principal.png)
+![Arquitectura del sistema](imagenes/escenario-princiapal.png)
 
 ## 🏗️ Componentes de la arquitectura
 | Servicio | Función |
@@ -243,3 +243,4 @@ Los resultados confirmaron que:
 
 ### Conclusión
 CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs de CloudTrail, facilitando el análisis de eventos de seguridad como intentos fallidos de acceso. Esta herramienta es fundamental para investigaciones forenses y auditorías de seguridad en AWS.
+
