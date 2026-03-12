@@ -161,7 +161,7 @@ Se creó un filtro de métricas sobre el grupo de logs de CloudTrail para detect
 - **Nombre de métrica**: `ConsoleLoginFailureCount`
 - **Valor de métrica**: `1`
 
-![Configuración del filtro de métricas](imagenes/t4-config-filtro.png)
+![Configuración del filtro de métricas](imagenesfiltro-metrica-creada.png)
 
 ### 4.2 Creación de la alarma
 Se configuró una alarma que se activa cuando hay 3 o más intentos fallidos en 5 minutos:
@@ -170,14 +170,14 @@ Se configuró una alarma que se activa cuando hay 3 o más intentos fallidos en 
 - **Condición**: `ConsoleLoginFailureCount >= 3` en 5 minutos
 - **Acción**: Notificación al topic SNS `MySNSTopic`
 
-![Condiciones de la alarma](imagenes/condiciones.png)
-![Acciones con SNS](imagenes/acciones-sns.png)
-![Nombre de la alarma](imagenes/nombre-alarma.png)
+![Condiciones de la alarma](imagenes/filtro-metrica-creada.png)
+![Acciones con SNS](imagenes/accioens-sns.png)
+![Nombre de la alarma](imagenes/Detalle-alarma.png)
 
 ### 4.3 Alarma creada
 La alarma se creó exitosamente en CloudWatch.
 
-![Alarma creada](imagenes/alarma-creada.png)
+![Alarma creada](imagenes/alarma-creada-exitosa.png)
 
 ### 4.4 Prueba de la alarma
 Se realizaron 3 intentos de inicio de sesión fallidos con el usuario `test`:
@@ -245,6 +245,7 @@ Los resultados confirmaron que:
 
 ### Conclusión
 CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs de CloudTrail, facilitando el análisis de eventos de seguridad como intentos fallidos de acceso. Esta herramienta es fundamental para investigaciones forenses y auditorías de seguridad en AWS.
+
 
 
 
