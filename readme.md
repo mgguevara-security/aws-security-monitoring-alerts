@@ -193,7 +193,7 @@ La métrica registró los intentos fallidos en CloudWatch.
 ### 4.6 Estado de la alarma
 La alarma cambió a estado **ALARMA** después de superar el umbral de 3 intentos fallidos.
 
-![Alarma en estado ALARMA](imagenes/alarma-activada.png)
+![Alarma en estado ALARMA](imagenes/aviso-aalrma.png)
 
 ### 4.7 Notificación por correo
 Se recibió el correo de alerta confirmando la activación de la alarma.
@@ -217,12 +217,12 @@ Utilizar CloudWatch Logs Insights para consultar y analizar los registros de Clo
 ```sql
 filter eventSource="signin.amazonaws.com" and eventName="ConsoleLogin" and responseElements.ConsoleLogin="Failure"
 | stats count(*) as Total_Count by sourceIPAddress as Source_IP, errorMessage as Reason, awsRegion as AWS_Region, userIdentity.arn as IAM_Arn
+```
 
 Hacemos clic en **Ejecutar consulta** (Run query).
 
-![Selección del grupo de registros](imagenes/seleccionar-grupo.png)
-![Consulta ingresada](imagenes/consulta-ingresada.png)
-![Ejecutar consulta](imagenes/ejecutar-consulta.png)
+
+![Ejecutar consulta](imagenes/registro-log-cloudwatch.png)
 
 ### 5.2 Resultados obtenidos
 La consulta devolvió los intentos fallidos de inicio de sesión registrados en CloudTrail, mostrando:
@@ -233,7 +233,6 @@ La consulta devolvió los intentos fallidos de inicio de sesión registrados en 
 - **IAM_Arn**: ARN del usuario que intentó acceder
 - **Total_Count**: Número de intentos fallidos por combinación de factores
 
-![Resultados de la consulta](imagenes/resultados.png)
 
 ### 5.3 Análisis de los resultados
 Los resultados confirmaron que:
@@ -245,6 +244,10 @@ Los resultados confirmaron que:
 
 ### Conclusión
 CloudWatch Logs Insights permite consultar de forma rápida y eficiente los logs de CloudTrail, facilitando el análisis de eventos de seguridad como intentos fallidos de acceso. Esta herramienta es fundamental para investigaciones forenses y auditorías de seguridad en AWS.
+Una vez completadas todas las tareas, la arquitectura final del sistema de monitoreo y alertas quedó configurada de la siguiente manera:
+
+![Arquitectura final del sistema](imagenes/arquitectura-fianl-creada.png)
+
 
 
 
